@@ -7,11 +7,11 @@ namespace Assignment1
         static void Main(string[] args)
         {
             //test code to call the first method and make sure it works.
-            int[] test = targetRange(new int[] { 2, 3 }, 3);
+            int[] test = TargetRange(new int[] { 2, 3 }, 3);
             Console.WriteLine("Output: " + test[0]);
         }
 
-        public static int[] targetRange(int[] marks, int target)
+        public static int[] TargetRange(int[] marks, int target)
         {
             /*Q1: Professor Agrawal receives an array of integer points sorted in ascending order, the task is to find the initial and final index of a given target point’s value.
             If the target point value is not found in the array of integers, return [-1,-1]
