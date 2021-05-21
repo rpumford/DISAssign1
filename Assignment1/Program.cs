@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Assignment1
 {
@@ -7,8 +8,11 @@ namespace Assignment1
         static void Main(string[] args)
         {
             //test code to call the first method and make sure it works.
-            int[] test = TargetRange(new int[] { 2, 3 }, 3);
-            Console.WriteLine("Output: " + test[0]);
+            int[] test = TargetRange(new int[] { 1, 2, 3, 4, 4, 4, 5 }, 4);
+            Console.WriteLine("[" + test[0] + "," + test[1] + "]");
+
+            bool q6 = ContainsDuplicate(new char[] { 'a', 'b', 'c', 'a', 'b', 'c' }, 2);
+            Console.WriteLine(q6);
         }
 
         public static int[] TargetRange(int[] marks, int target)
@@ -18,9 +22,26 @@ namespace Assignment1
             The professor had to leave for a conference at short notice and asked you to complete the task for him. He instructed you to limit the time complexity to O(n).
             */
 
-            return marks;
-        }
+            int first = -1;
+            int last = -1;
+            bool foundIt = false;
 
+            for (int i = 0; i < marks.Length; i++)
+            {
+                if (marks[i] == target)
+                {
+                    if (foundIt) last = i;
+                    else
+                    {
+                        first = i;
+                        last = i;
+                        foundIt = true;
+                    }
+                }
+            }
+            int[] r = new int[] { first, last };
+            return r;
+        }
         public static string StringReverse(string s)
         {
             /*Q2: Rocky is not aware of the inbuilt functions to split and reverse a string. He is given a string 
@@ -41,21 +62,37 @@ namespace Assignment1
 
         public static int[] Intersect1(int[] nums1, int[] nums2)
         {
-            /*Q4: You are given a string and your task is to sort the given string in decreasing order of frequency 
-             * of occurrence of each character.*/
+            /*Q5: Rocky the Bull is new to programming and is having trouble understating the importance of time complexity. 
+             * Professor Agrawal assigned you the job of explaining time complexity to Rocky with the example below.
+             * Given two arrays, write a function to compute their intersection.*/
+
+
+
             return nums2;
         }
 
-        public bool ContainsDuplicate(char[] arr, int k)
+        public static bool ContainsDuplicate(char[] arr, int k)
         {
-            /*Q5: Rocky the Bull is new to programming and is having trouble understating the importance of time c
-             * omplexity. Professor Agrawal assigned you the job of explaining time complexity to Rocky with the e
-             * xample below.  Given two arrays, write a function to compute their intersection. */
-            return true;
-        }
+            /*Q6: You are given an array of characters and an integer k, and are required to find out whether there 
+             * are two distinct indices i and j in the array such that arr[i]=arr[j] and the absolute difference 
+             * between i and j is at most k. */
 
+            Dictionary<int, char> dist = new Dictionary<int, char>();
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                foreach (KeyValuePair<int, char> letterPosition in dist)
+                {
+                    if (letterPosition.Value == arr[i])
+                    {
+                        if ((i - letterPosition.Key) <= k) return true;
+                    }
+                }
+                dist.Add(i, arr[i]);
+
+            }
+            return false;
+        }
     }
 }
-
-
 
