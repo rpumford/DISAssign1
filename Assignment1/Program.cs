@@ -8,7 +8,7 @@ namespace Assignment1
         static void Main(string[] args)
         {
             //test code to call the first method and make sure it works.
-            int[] test = TargetRange(new int[] { 1, 2, 3, 4, 4, 4, 5 }, 4);
+            int[] test = TargetRange(new int[] { 1, 2, 3, 3, 4, 4, 5 }, 4);
             Console.WriteLine("[" + test[0] + "," + test[1] + "]");
 
             bool q6 = ContainsDuplicate(new char[] { 'a', 'b', 'c', 'a', 'b', 'c' }, 2);
