@@ -34,7 +34,7 @@ namespace Assignment1
             Console.WriteLine("Please enter target variable");
             int target_var = Convert.ToInt32(Console.ReadLine());
 
-            int[] q1 = TargetRange(array,target_var) ;
+            int[] q1 = TargetRange(array, target_var);
             WriteArray(q1);
 
             //2 - Sean
@@ -98,15 +98,10 @@ namespace Assignment1
             else Console.WriteLine("No");
         }
 
-             public static int[] TargetRange(int[] marks, int target)
+        public static int[] TargetRange(int[] marks, int target)
         {
-            
-            int[] output = new int[2];
-            Console.Write("Please enter the Number to find: ");
-            string target1 = Console.ReadLine();
 
-            // parsing to specific data types
-            target = Convert.ToInt32(target1);
+            int[] output = new int[2];
             Console.WriteLine(target);
             try
             {
