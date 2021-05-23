@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Assignment1
 {
@@ -71,6 +72,11 @@ namespace Assignment1
             int retval = minSum(arr);
             Console.WriteLine("[{0}]", string.Join(", ", retval));
 
+            /* Question 4: Frequency Sort */
+
+            Console.WriteLine("enter a string");
+            string name1 = Console.ReadLine();
+            FreqSort(name1);
 
             //Q5 testing arrays
             int[] q51 = Intersect1(new int[] { 2, 5, 5, 2 }, new int[] { 5, 5 });
@@ -207,6 +213,27 @@ namespace Assignment1
 
             // To return  to the main function
             return sum;
+        }
+
+        public static void FreqSort(string name)
+        {
+            /*Q4: You are given a string and your task is to sort the given string in 
+             * decreasing order of frequency of occurrence of each character*/
+            Program p = new Program();
+            Dictionary<char, int> dict = new Dictionary<char, int>();
+            dict = p.getCount(name);
+            foreach (KeyValuePair<char, int> pair in dict.OrderByDescending(i => i.Value))
+            {
+                for (int i = 0; i < pair.Value; i++)
+                {
+                    Console.Write(pair.Key.ToString());
+                }
+            }
+            Console.ReadLine();
+        }
+        public Dictionary<char, int> getCount(string name)
+        {
+            return name.GroupBy(x => x).ToDictionary(gr => gr.Key, gr => gr.Count());
         }
 
 
