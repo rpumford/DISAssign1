@@ -34,16 +34,8 @@ namespace Assignment1
             Console.WriteLine("Please enter target variable");
             int target_var = Convert.ToInt32(Console.ReadLine());
 
-            int index = Array.IndexOf(array, target_var);
-            if (index != -1)
-            {
-                Console.WriteLine(String.Format("[{0},{1}]", index, Array.LastIndexOf(array, target_var)));
-
-            }
-            else
-            {
-                Console.WriteLine("[-1,1]");
-            }
+            int[] q1 = TargetRange(array,target_var) ;
+            WriteArray(q1);
 
             //2 - Sean
 
@@ -104,6 +96,30 @@ namespace Assignment1
             bool q6 = ContainsDuplicate(new char[] { 'a', 'b', 'c', 'a', 'b', 'c' }, 2);
             if (q6) Console.WriteLine("Yes");
             else Console.WriteLine("No");
+        }
+
+             public static int[] TargetRange(int[] marks, int target)
+        {
+            
+            int[] output = new int[2];
+            Console.Write("Please enter the Number to find: ");
+            string target1 = Console.ReadLine();
+
+            // parsing to specific data types
+            target = Convert.ToInt32(target1);
+            Console.WriteLine(target);
+            try
+            {
+                output[0] = Array.IndexOf(marks, target);
+                output[1] = Array.LastIndexOf(marks, target);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception " + e);
+            }
+            // To return  to the main function
+            return output;
+
         }
         private static string ReverseString(string inputString)
         {
