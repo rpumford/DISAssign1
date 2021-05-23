@@ -87,8 +87,10 @@ namespace Assignment1
             WriteArray(q53);
 
             //Q6
+            Console.WriteLine("Q6: Is the absolute difference between identical characters in [a,b,c,a,b,c] at most 2?");
             bool q6 = ContainsDuplicate(new char[] { 'a', 'b', 'c', 'a', 'b', 'c' }, 2);
-            Console.WriteLine(q6);
+            if (q6) Console.WriteLine("Yes");
+            else Console.WriteLine("No");
         }
         private static string ReverseString(string inputString)
         {
@@ -174,6 +176,7 @@ namespace Assignment1
             /*Q5: Rocky the Bull is new to programming and is having trouble understating the importance of time complexity. 
              * Professor Agrawal assigned you the job of explaining time complexity to Rocky with the example below.
              * Given two arrays, write a function to compute their intersection.*/
+            Console.WriteLine("Question 5: two intersection functions showing time complexity:");
 
             //sort both arrays
             Array.Sort(nums1);
@@ -228,6 +231,7 @@ namespace Assignment1
 
         public static int[] Intersect2(int[] nums1, int[] nums2)
         {
+            Console.WriteLine("Intersection Function 2:");
             Dictionary<int, int> first = new Dictionary<int, int>();
             Dictionary<int, int> second = new Dictionary<int, int>();
             for (int i = 0; i < nums1.Length; i++) first.Add(i, nums1[i]);
@@ -251,6 +255,7 @@ namespace Assignment1
                                 output.Add(outCounter, kvp.Value);
                                 outCounter++;
                                 first.Remove(kvp.Key);
+                                break;
                             }
                         }
                     }
@@ -271,6 +276,7 @@ namespace Assignment1
                                 output.Add(outCounter, kvp.Value);
                                 outCounter++;
                                 second.Remove(kvp.Key);
+                                break;
                             }
                         }
                     }
@@ -286,7 +292,7 @@ namespace Assignment1
             /*Q6: You are given an array of characters and an integer k, and are required to find out whether there 
              * are two distinct indices i and j in the array such that arr[i]=arr[j] and the absolute difference 
              * between i and j is at most k. */
-
+            Console.WriteLine("Question 6: ");
             Dictionary<int, char> dist = new Dictionary<int, char>();
 
             for (int i = 0; i < arr.Length; i++)
