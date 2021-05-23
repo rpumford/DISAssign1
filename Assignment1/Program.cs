@@ -33,7 +33,7 @@ namespace Assignment1
             Console.WriteLine("Please enter target variable");
             int target_var = Convert.ToInt32(Console.ReadLine());
 
-            int index = array.findIndex(target_var);
+            int index = Array.IndexOf(array, target_var);
             if (index != -1)
             {
                 Console.WriteLine(String.Format("[{0},{1}]", index, Array.LastIndexOf(array, target_var)));
@@ -59,22 +59,47 @@ namespace Assignment1
             string outputString_3 = ReverseString_3(inputString_3);
 
 
-            Console.Write(inputString+ " "+ inputString_1+" " + inputString_2+" " + inputString_3);
+            Console.Write(inputString + " " + inputString_1 + " " + inputString_2 + " " + inputString_3);
             Console.WriteLine();
-            Console.Write(outputString+ " "+ outputString_1+ " " + outputString_2+ " "  + outputString_3);
+            Console.Write(outputString + " " + outputString_1 + " " + outputString_2 + " " + outputString_3);
 
             Console.ReadLine();
-        }
-            private static string ReverseString(string inputString)
-            {
-                string resversedString = "";
 
-                for (int count = inputString.Length -1; count >= 0; count--)
-                {
-                    resversedString += inputString[count];
-                }
-                return resversedString;
+            //Q5 testing arrays
+            int[] q51 = Intersect1(new int[] { 2, 5, 5, 2 }, new int[] { 5, 5 });
+            Console.Write("Intersection Array: ");
+            WriteArray(q51);
+            int[] q52 = Intersect1(new int[] { 3, 6, 2 }, new int[] { 6, 3, 6, 7, 3 });
+            Console.Write("Intersection Array: ");
+            WriteArray(q52);
+            int[] q53 = Intersect1(new int[] { 2, 3, 4 }, new int[] { 5, 6 });
+            Console.Write("Intersection Array: ");
+            WriteArray(q53);
+
+            q51 = Intersect2(new int[] { 2, 5, 5, 2 }, new int[] { 5, 5 });
+            Console.Write("Intersection Array: ");
+            WriteArray(q51);
+            q52 = Intersect2(new int[] { 3, 6, 2 }, new int[] { 6, 3, 6, 7, 3 });
+            Console.Write("Intersection Array: ");
+            WriteArray(q52);
+            q53 = Intersect2(new int[] { 2, 3, 4 }, new int[] { 5, 6 });
+            Console.Write("Intersection Array: ");
+            WriteArray(q53);
+
+            //Q6
+            bool q6 = ContainsDuplicate(new char[] { 'a', 'b', 'c', 'a', 'b', 'c' }, 2);
+            Console.WriteLine(q6);
+        }
+        private static string ReverseString(string inputString)
+        {
+            string resversedString = "";
+
+            for (int count = inputString.Length - 1; count >= 0; count--)
+            {
+                resversedString += inputString[count];
             }
+            return resversedString;
+        }
         private static string ReverseString_1(string inputString_1)
         {
             string resversedString = "";
@@ -106,36 +131,8 @@ namespace Assignment1
             return resversedString;
         }
 
-            //test code to call the first method and make sure it works.
-            int[] test = TargetRange(new int[] { 1, 2, 3, 3, 4, 4, 5 }, 4);
-            Console.WriteLine("[" + test[0] + "," + test[1] + "]");
 
 
-            //Q5 testing arrays
-            int[] q51 = Intersect1(new int[] { 2, 5, 5, 2 }, new int[] { 5, 5 });
-            Console.Write("Intersection Array: ");
-            WriteArray(q51);
-            int[] q52 = Intersect1(new int[] { 3, 6, 2 }, new int[] { 6, 3, 6, 7, 3 });
-            Console.Write("Intersection Array: ");
-            WriteArray(q52);
-            int[] q53 = Intersect1(new int[] { 2, 3, 4 }, new int[] { 5, 6 });
-            Console.Write("Intersection Array: ");
-            WriteArray(q53);
-
-            q51 = Intersect2(new int[] { 2, 5, 5, 2 }, new int[] { 5, 5 });
-            Console.Write("Intersection Array: ");
-            WriteArray(q51);
-            q52 = Intersect2(new int[] { 3, 6, 2 }, new int[] { 6, 3, 6, 7, 3 });
-            Console.Write("Intersection Array: ");
-            WriteArray(q52);
-            q53 = Intersect2(new int[] { 2, 3, 4 }, new int[] { 5, 6 });
-            Console.Write("Intersection Array: ");
-            WriteArray(q53);
-
-            //Q6
-            bool q6 = ContainsDuplicate(new char[] { 'a', 'b', 'c', 'a', 'b', 'c' }, 2);
-            Console.WriteLine(q6);
-        }
 
         public static void WriteArray(int[] arr)
         {
@@ -154,33 +151,6 @@ namespace Assignment1
             }
         }
 
-        public static int[] TargetRange(int[] marks, int target)
-        {
-            /*Q1: Professor Agrawal receives an array of integer points sorted in ascending order, the task is to find the initial and final index of a given target point’s value.
-            If the target point value is not found in the array of integers, return [-1,-1]
-            The professor had to leave for a conference at short notice and asked you to complete the task for him. He instructed you to limit the time complexity to O(n).
-            */
-
-            int first = -1;
-            int last = -1;
-            bool foundIt = false;
-
-            for (int i = 0; i < marks.Length; i++)
-            {
-                if (marks[i] == target)
-                {
-                    if (foundIt) last = i;
-                    else
-                    {
-                        first = i;
-                        last = i;
-                        foundIt = true;
-                    }
-                }
-            }
-            int[] r = new int[] { first, last };
-            return r;
-        }
         public static string StringReverse(string s)
         {
             /*Q2: Rocky is not aware of the inbuilt functions to split and reverse a string. He is given a string 
