@@ -11,7 +11,7 @@ namespace Assignment1
             int[] test = TargetRange(new int[] { 1, 2, 3, 3, 4, 4, 5 }, 4);
             Console.WriteLine("[" + test[0] + "," + test[1] + "]");
 
-            
+
             //Q5 testing arrays
             int[] q51 = Intersect1(new int[] { 2, 5, 5, 2 }, new int[] { 5, 5 });
             Console.Write("Intersection Array: ");
@@ -212,28 +212,28 @@ namespace Assignment1
             return outArray;
         }
 
-            public static bool ContainsDuplicate(char[] arr, int k)
+        public static bool ContainsDuplicate(char[] arr, int k)
+        {
+            /*Q6: You are given an array of characters and an integer k, and are required to find out whether there 
+             * are two distinct indices i and j in the array such that arr[i]=arr[j] and the absolute difference 
+             * between i and j is at most k. */
+
+            Dictionary<int, char> dist = new Dictionary<int, char>();
+
+            for (int i = 0; i < arr.Length; i++)
             {
-                /*Q6: You are given an array of characters and an integer k, and are required to find out whether there 
-                 * are two distinct indices i and j in the array such that arr[i]=arr[j] and the absolute difference 
-                 * between i and j is at most k. */
-
-                Dictionary<int, char> dist = new Dictionary<int, char>();
-
-                for (int i = 0; i < arr.Length; i++)
+                foreach (KeyValuePair<int, char> letterPosition in dist)
                 {
-                    foreach (KeyValuePair<int, char> letterPosition in dist)
+                    if (letterPosition.Value == arr[i])
                     {
-                        if (letterPosition.Value == arr[i])
-                        {
-                            if ((i - letterPosition.Key) <= k) return true;
-                        }
+                        if ((i - letterPosition.Key) <= k) return true;
                     }
-                    dist.Add(i, arr[i]);
-
                 }
-                return false;
+                dist.Add(i, arr[i]);
+
             }
+            return false;
         }
     }
+}
 
