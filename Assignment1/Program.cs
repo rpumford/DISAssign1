@@ -11,6 +11,8 @@ namespace Assignment1
             int[] test = TargetRange(new int[] { 1, 2, 3, 3, 4, 4, 5 }, 4);
             Console.WriteLine("[" + test[0] + "," + test[1] + "]");
 
+            
+            //Q5 testing arrays
             int[] q51 = Intersect1(new int[] { 2, 5, 5, 2 }, new int[] { 5, 5 });
             Console.Write("Intersection Array: ");
             WriteArray(q51);
@@ -31,6 +33,7 @@ namespace Assignment1
             Console.Write("Intersection Array: ");
             WriteArray(q53);
 
+            //Q6
             bool q6 = ContainsDuplicate(new char[] { 'a', 'b', 'c', 'a', 'b', 'c' }, 2);
             Console.WriteLine(q6);
         }
