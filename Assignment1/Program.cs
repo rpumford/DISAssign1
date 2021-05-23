@@ -7,6 +7,105 @@ namespace Assignment1
     {
         static void Main(string[] args)
         {
+
+            // 1 - Sean
+
+            Console.WriteLine("Enter 5 numbers:");
+            int number_A = Convert.ToInt32(Console.ReadLine());
+            int number_B = Convert.ToInt32(Console.ReadLine());
+            int number_C = Convert.ToInt32(Console.ReadLine());
+            int number_D = Convert.ToInt32(Console.ReadLine());
+            int number_E = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine();
+
+            int[] array = { number_A, number_B, number_C, number_D, number_E };
+            for (int i = 0; i < array.Length; i++)
+            {
+                Console.Write(array[i]);
+                if (i < array.Length - 1)
+                {
+                    Console.Write(",");
+                }
+            }
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("Please enter target variable");
+            int target_var = Convert.ToInt32(Console.ReadLine());
+
+            int index = array.findIndex(target_var);
+            if (index != -1)
+            {
+                Console.WriteLine(String.Format("[{0},{1}]", index, Array.LastIndexOf(array, target_var)));
+
+            }
+            else
+            {
+                Console.WriteLine("[-1,1]");
+            }
+
+            //2 - Sean
+
+            Console.ReadLine();
+
+            string inputString = " University";
+            string inputString_1 = "of";
+            string inputString_2 = "South";
+            string inputString_3 = "Florida";
+
+            string outputString = ReverseString(inputString);
+            string outputString_1 = ReverseString_1(inputString_1);
+            string outputString_2 = ReverseString_2(inputString_2);
+            string outputString_3 = ReverseString_3(inputString_3);
+
+
+            Console.Write(inputString+ " "+ inputString_1+" " + inputString_2+" " + inputString_3);
+            Console.WriteLine();
+            Console.Write(outputString+ " "+ outputString_1+ " " + outputString_2+ " "  + outputString_3);
+
+            Console.ReadLine();
+        }
+            private static string ReverseString(string inputString)
+            {
+                string resversedString = "";
+
+                for (int count = inputString.Length -1; count >= 0; count--)
+                {
+                    resversedString += inputString[count];
+                }
+                return resversedString;
+            }
+        private static string ReverseString_1(string inputString_1)
+        {
+            string resversedString = "";
+
+            for (int count = inputString_1.Length - 1; count >= 0; count--)
+            {
+                resversedString += inputString_1[count];
+            }
+            return resversedString;
+        }
+        private static string ReverseString_2(string inputString_2)
+        {
+            string resversedString = "";
+
+            for (int count = inputString_2.Length - 1; count >= 0; count--)
+            {
+                resversedString += inputString_2[count];
+            }
+            return resversedString;
+        }
+        private static string ReverseString_3(string inputString_3)
+        {
+            string resversedString = "";
+
+            for (int count = inputString_3.Length - 1; count >= 0; count--)
+            {
+                resversedString += inputString_3[count];
+            }
+            return resversedString;
+        }
+
             //test code to call the first method and make sure it works.
             int[] test = TargetRange(new int[] { 1, 2, 3, 3, 4, 4, 5 }, 4);
             Console.WriteLine("[" + test[0] + "," + test[1] + "]");
