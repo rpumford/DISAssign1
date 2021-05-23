@@ -146,9 +146,6 @@ namespace Assignment1
             return resversedString;
         }
 
-
-
-
         public static void WriteArray(int[] arr)
         {
             if (arr.Length == 0) Console.WriteLine("Zero Length Array");
@@ -164,15 +161,6 @@ namespace Assignment1
                     else Console.Write(arr[i] + ",");
                 }
             }
-        }
-
-        public static string StringReverse(string s)
-        {
-            /*Q2: Rocky is not aware of the inbuilt functions to split and reverse a string. He is given a string 
-             * and he needs to reverse the order of characters in each word within a sentence while still preserving 
-             * whitespace and initial word order. He is not allowed to use any predefined split and reverse function. 
-             * He is requesting you to complete the method for him. */
-            return s;
         }
 
         public static int minSum(int[] arr)
