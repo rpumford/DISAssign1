@@ -65,6 +65,13 @@ namespace Assignment1
 
             Console.ReadLine();
 
+            /* Question 3: Minimum sum and array */
+
+            int[] arr = new int[] { 1, 1, 3, 4, 5, 6, 6, 8 };
+            int retval = minSum(arr);
+            Console.WriteLine("[{0}]", string.Join(", ", retval));
+
+
             //Q5 testing arrays
             int[] q51 = Intersect1(new int[] { 2, 5, 5, 2 }, new int[] { 5, 5 });
             Console.Write("Intersection Array: ");
@@ -166,8 +173,42 @@ namespace Assignment1
              * by increasing each value as needed, while minimizing the array sum. Professor Stablein thought this 
              * was an interesting exercise that the students might enjoy completing. Your job is to complete the method 
              * to print the minimum possible sum as output.*/
-            return arr[0];
+            int[] output = new int[arr.Length];
+            //Console.Write("Please enter the Number to find: ");
+            int sum = 0;
+            int temp = 0;
+            // parsing to specific data types
+            Console.WriteLine("[{0}]", string.Join(", ", arr));
+            try
+            {
+                for (int i = 0; i <= arr.Length - 1; i++)
+                {
+                    if (i == 0 || arr[i] != temp)
+                    {
+                        sum += arr[i];
+                        temp = arr[i];
+                        output[i] = temp;
+                    }
+                    else if (arr[i] == temp & temp != 0)
+                    {
+                        sum += arr[i] + 1;
+                        temp = arr[i] + 1;
+                        output[i] = temp;
+                    }
+                }
+                Console.WriteLine("Minimum sum is :" + sum);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Exception " + e);
+            }
+
+            Console.WriteLine("[{0}]", string.Join(", ", output));
+
+            // To return  to the main function
+            return sum;
         }
+
 
         public static int[] Intersect1(int[] nums1, int[] nums2)
         {
